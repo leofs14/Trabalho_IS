@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Filmes</title>
+    <title>Document</title>
 
     <style>
         table {
@@ -22,11 +22,6 @@
 <body>
     <form id="form">
         <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-
-        <div>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
         </div>
@@ -36,22 +31,13 @@
             <input type="password" id="password" name="password" required>
         </div>
 
-        <button type="submit">Save</button>
+        <button type="submit">Login</button>
+
+        <p id="error"></p>
     </form>
 
-
-    <table id="users">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-    </table>
-
-    <script src="../api/API.js"></script>
-    <script src="../api/User.js"></script>
+    <script src="api/API.js"></script>
+    <script src="api/Auth.js"></script>
     <script src="functions.js"></script>
     <script src="main.js"></script>
 </body>
