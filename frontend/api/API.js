@@ -60,7 +60,7 @@ class API {
         }
 
         if(response.status == 401) {
-            return window.location.replace("Trabalho_IS/frontend/");
+            return window.location.replace("./frontend/");
         }
 
         if(response.status == 422) {
