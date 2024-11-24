@@ -1,44 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dittodex.css">
-    <title>DittoDex</title>
-</head>
-<body>
-    <!-- Imagem de usuário fixada no canto superior direito -->
-    <img src="imagens/user-286-512.png" id="user_image" alt="user_image" onclick="window.location.href='../user/user.html';">
-    
-    <div class="container">
-        <h1>Procurar Pokémons</h1>
-        
-        <!-- Formulário de pesquisa -->
-        <form id="pokemon-form" class="form-container">
-            <input type="text" id="pokemon-name" placeholder="Escolher Pokémon" required />
-            <button type="submit" class="submit-btn">Procurar</button>
-        </form>
-        
-        <div id="result" class="pokemon-container"></div>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto Filmes</title>
 
-        <h2>Lista de Pokémons</h2>
-        <div id="pokemon-table"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Paginação -->
-        <div class="pagination">
-            <div class="page-info" id="page-info"></div>
-            <div class="pagination-buttons">
-                <button id="prev-page" class="pagination-btn" disabled>Anterior</button>
-                <button id="next-page" class="pagination-btn">Próximo</button>
-            </div>
-            <div>
-                <input type="number" id="page-input" placeholder="Digite o número da página" min="1" class="page-input">
-                <button id="go-to-page" class="go-to-page-btn">Ir para página</button>
-            </div>
+   <!-- <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/filmes.css" />
+    -->
+
+  </head>
+  <body>
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Projeto Filmes</h1>
+      
+      
+      <div class="cabecalho__pesquisa">
+        <input
+          type="text"
+          class="cabecalho__pesquisa-input"
+          placeholder="Digite algum filme para pesquisar..."
+        />
+        <span class="cabecalho__pesquisa-lupa">
+          <img src="imagens/search-icon.svg" alt="" />
+        </span>
+      </div>
+      
+      
+      
+
+      <label class="cabecalho__checkbox">
+        <input type="checkbox" id="cabecalho__checkbox"/>
+        Mostrar so os meus filmes favoritos
+      </label>
+    </header>
+
+    <section id="filmes">
+    </section>
+    <section class="card__lista-vazia">Você ainda não adicionou nenhum filme a sua lista de favoritos!</section>
+    <!--
+        <section class="cards">
+
+        
+      <div class="cards__parte1">
+        <img src="imagens/image 1.png" alt="Capa" class="cards__parte1-capa" />
+      </div>
+      <div class="cards__parte2">
+        <h2 class="cards__parte2-titulo">Titulo Completo (Ano)</h2>
+        <div class="cards__parte2-details">
+          <div>
+            <img src="imagens/Star.svg" alt="star" class="cards__parte2-icon" />
+            <h2 class="cards__parte2-text">9.2</h2>
+          </div>
+          <div>
+            <img src="imagens/Heart.svg" alt="star" class="cards__parte2-icon" />
+            <h2 class="cards__parte2-text">Favoritar</h2>
+          </div>
         </div>
-    </div>
-    
-    <script src="dittodex.js"></script>
-    <script src="../api/Pokemon.js"></script>
-</body>
+      </div>
+      <div class="cards__parte3">
+        <p class="cards__parte3-texto">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+      </div>
+      
+    </section>
+-->
+
+    <script src="filmes.js" type="module"></script>
+    <script src="pesquisarF.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
 </html>

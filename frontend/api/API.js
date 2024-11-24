@@ -1,4 +1,5 @@
-//const baseURL = 'http://esgts.is.test/api'; //MUDAR!
+const baseURL = 'http://localhost:3000'; // ou a URL da sua API
+
 
 class API {
     static async get(endpoint, params) {
