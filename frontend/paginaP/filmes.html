@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dittodex.css">
+    <title>DittoDex</title>
+</head>
+<body>
+    <!-- Imagem de usuário fixada no canto superior direito -->
+    <img src="imagens/user-286-512.png" id="user_image" alt="user_image" onclick="window.location.href='../user/user.html';">
+    
+    <div class="container">
+        <h1>Procurar Pokémons</h1>
+        
+        <!-- Formulário de pesquisa -->
+        <form id="pokemon-form" class="form-container">
+            <input type="text" id="pokemon-name" placeholder="Escolher Pokémon" required />
+            <button type="submit" class="submit-btn">Procurar</button>
+        </form>
+        
+        <div id="result" class="pokemon-container"></div>
+
+        <h2>Lista de Pokémons</h2>
+        <div id="pokemon-table"></div>
+
+        <!-- Paginação -->
+        <div class="pagination">
+            <div class="page-info" id="page-info"></div>
+            <div class="pagination-buttons">
+                <button id="prev-page" class="pagination-btn" disabled>Anterior</button>
+                <button id="next-page" class="pagination-btn">Próximo</button>
+            </div>
+            <div>
+                <input type="number" id="page-input" placeholder="Digite o número da página" min="1" class="page-input">
+                <button id="go-to-page" class="go-to-page-btn">Ir para página</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dittodex.js"></script>
+    <script src="../api/Pokemon.js"></script>
+</body>
+</html>
