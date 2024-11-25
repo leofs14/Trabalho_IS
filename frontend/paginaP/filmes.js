@@ -20,9 +20,3 @@ home.addEventListener('click', () => {
   document.querySelector('.card__lista-vazia').style.display = 'none';
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('userLoggedIn')) {
-        // Se não estiver logado, redireciona para a página de login
-        window.location.replace("../login/index.html");
-    }
-});
