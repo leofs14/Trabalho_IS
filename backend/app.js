@@ -1,45 +1,48 @@
-var express = require('express');
+var express = require("express");
 const cors = require('cors');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
+var session = require("express-session");
 
-var usersRouter = require('./routes/users');
-var authRouter = require('./routes/auth');
-var moviesRouter = require('./routes/movies');
+var usersRouter = require("./routes/users");
+var loginRouter = require("./routes/login");
+var filmesRouter = require("./routes/movies");
 
 var app = express();
 
-// Configuração de sessão
-app.use(session({
-    secret: 'FdzvG2o9cXl42OYocqurNNonhObVfaIf',
+app.use(
+  session({
+    secret: "FdzvG2o9cXl42OYocqurNNonhObVfaIf",
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}));
+    saveUninitialized: false,
+    cookie: { secure: false },
+  })
+);
 
-
-app.use(cors({ origin: 'http://127.0.0.1:5500' }));
-
-app.post('/auth/register', (req, res) => {
-  // Lógica de registro
-  res.send('Registro bem-sucedido');
+app.all("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
 });
 
-app.listen(3000, () => {
-  console.log('Servidor rodando na porta 3000');
+app.use(cors()); // Permite todas as origens
+
+app.post('/users', (req, res) => {
+  // Código para lidar com a criação de usuários
 });
 
-// Outros middlewares
-app.use(logger('dev'));
+app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
-// Rotas
-app.use('/api/users', usersRouter);
-app.use('/api/auth', authRouter);
-app.use('/api/movies', moviesRouter);
+app.use("/login", loginRouter);
+app.use("/users", usersRouter);
+app.use("/movies", filmesRouter);
 
 module.exports = app;
-
