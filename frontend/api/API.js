@@ -2,22 +2,22 @@ const baseURL = 'http://localhost:5500/';
 // Define a URL base para as requisições da API, que pode ser utilizada para facilitar mudanças futuras na URL.
 
 class API {
-  // Classe utilitária para fazer chamadas à API, abstraindo os métodos HTTP.
+  
 
   static async get(endpoint, params) {
-    // Método GET, usado para buscar informações do servidor.
+    
     const response = await fetch(
       baseURL + endpoint + new URLSearchParams(params),
       { credentials: "include" }
     );
-    // Concatena o endpoint e os parâmetros da URL. Inclui `credentials` para enviar cookies/sessão.
+    
 
     return this.treatResponse(response);
     // Trata a resposta usando um método centralizado.
   }
 
   static async post(endpoint, params) {
-    // Método POST, usado para enviar dados ao servidor.
+ 
     const response = await fetch(baseURL + endpoint, {
       method: "POST",
       body: JSON.stringify(Object.fromEntries(params)),
