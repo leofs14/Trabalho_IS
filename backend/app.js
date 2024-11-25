@@ -6,9 +6,9 @@ var session = require('express-session');
 
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var pokemonRouter = require('./routes/movies');
+var moviesRouter = require('./routes/movies');
 
-const app = express();
+var app = express();
 
 // Configuração de sessão
 app.use(session({
@@ -18,23 +18,17 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Configuração simples permitindo todas as origens (não recomendada em produção)
-// Defina a origem exata que será permitida para as requisições com credenciais
-const corsOptions = {
-    origin: 'http://localhost:5500',  // Substitua pela origem do seu frontend
-    credentials: true,  // Permitir o envio de credenciais (cookies, tokens, etc.)
-  };
-  
-  app.use(cors(corsOptions));
-  
-  // Outras rotas e middlewares
-  app.get('/api', (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
-  });
-  
-  app.listen(5000, () => {
-    console.log('Servidor rodando na porta 5000');
-  });
+
+app.use(cors({ origin: 'http://127.0.0.1:5500' }));
+
+app.post('/auth/register', (req, res) => {
+  // Lógica de registro
+  res.send('Registro bem-sucedido');
+});
+
+app.listen(3000, () => {
+  console.log('Servidor rodando na porta 3000');
+});
 
 // Outros middlewares
 app.use(logger('dev'));
@@ -45,7 +39,7 @@ app.use(cookieParser());
 // Rotas
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
-app.use('/api/movies', pokemonRouter);
+app.use('/api/movies', moviesRouter);
 
 module.exports = app;
 

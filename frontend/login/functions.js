@@ -21,6 +21,7 @@ async function handleFormRequest(evt) {
 
         window.location.replace("../principal/filmes.html");
     } catch (e) {
+        console.log(e);
         if (e.cause.status == 422) {
             const errors = await e.cause.json();
             errorElement.innerText = errors.credentials;

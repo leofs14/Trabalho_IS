@@ -1,6 +1,5 @@
 const baseURL = 'http://localhost:3000'; // ou a URL da sua API
 
-
 class API {
     static async get(endpoint, params) {
         const response = await fetch(baseURL + endpoint + (new URLSearchParams(params)), {credentials: 'include'});
